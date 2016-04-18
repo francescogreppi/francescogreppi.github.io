@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Closures"
+date:   2016-04-18 17:16:57 +0100
+categories: Javascript
+---
+
+test test test
+
+
+
