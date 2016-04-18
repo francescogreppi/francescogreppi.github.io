@@ -5,7 +5,19 @@ date:   2016-04-18 14:00:57 +0100
 categories: Javascript
 ---
 
-test test test
+Once I was at the phone with the front-end lead of a quite prestigious company. I was interviewing for a front end developer role, not a senior role of course. I remember I was quite excited about the role, the guys were doing really well online, and they were recruiting a team to kick off a big project, new tech stack, cool stuff.
+
+I passed the logical test and then the technical test. Last two steps were a phone interview and a final face to face interview. So I had this phone interview. Pretty confident about that, tech part was done, I demonstrated I was able to do what required, what else?
+
+The guy at the phone was initially cool, few question about my experience, I talk a bit, showing my how confidently I can talk about my experience and what I've done so far. All looks smooth. Until when the guy ask me:
+
+_"So, can you tell me what a closure is in Javascript?"_
+
+Silence. I was really displaced. I read thousands of time about closures, especially between my copy and paste sessions on Stack Overflow. However, I wasn't be able to give a definition, even basic. That lack, costed me a super cool opportunity. 
+
+This demonstrate how much is important to know what you are talking about, in general in life, and especially if you're covering a technical role. It's not enough to know how things work, you have to be able to define them, and be able to explain them.
+
+So let's have a look at Javascript closures.
 
 
 
