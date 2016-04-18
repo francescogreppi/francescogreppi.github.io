@@ -7,7 +7,7 @@ categories: Javascript
 
 I don't know anything about javascript, period. If you get to this blog probably you don't too. 
 
-I 'code' Javascript since two years, and so far I've always adopted the 'chip shop' attitude, frenetically browsing blogs and websites, looking for pre-built solutions that just need a little fix here and there. 
+I 'code' Javascript since two years, and so far I've always adopted the so called 'chip shop' attitude, frenetically browsing blogs and websites, looking for pre-built solutions that just need a little fix here and there. 
 I have to admit it: I'm not always fully getting the sense of what I'm writing.
 
 During the first years of my professional life I mostly covered business roles, always exposed to the tech side of things but never enough to being fascinated by coding. At a certain point of my life I switched to a proper developer role. I was convinced, and I'm still are, it would have been a good choice in terms of quality of life. 
@@ -20,6 +20,10 @@ How cool is that? There's a lot of implications here, an expensive mix of abstra
 
 If you want to be a credible developer first you have to know the rules (syntax, concepts, best practises) then you can build whatever you want, you can explore and use all the related technologies the world out there has to offer, and finally you can learn any new language or master any new skill, cause you got which is the right approach in learning.
 
-It's with this convinction and new awarness in mind that I started `I don't know JS` project. I see it as an opportunity to explain to myself the core concepts of Javascript and possibly master them.  
+It's with this convinction and new awarness in mind that I started **I don't know JS** project. I see it as an opportunity to explain to myself the core concepts of Javascript and possibly master them.  
 
-So with the spirit of the famous Socrates quote, _The only true wisdom is in knowing you know nothing_, let's explore Javascript core concepts. If you feel to be on the same page, then join me on this journey.
+So with the spirit of the famous Socrates quote: 
+
+_The only true wisdom is in knowing you know nothing_ 
+
+let's explore Javascript core concepts. If you feel to be on the same page, then join me on this journey.
