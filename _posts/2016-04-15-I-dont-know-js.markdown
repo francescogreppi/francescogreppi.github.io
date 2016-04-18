@@ -16,7 +16,7 @@ In a tech role you are less exposed to the political conflicts that normally hap
 Thus, my switch to development started as a strategic move, but yet without the awarness of what being a developer really means. Ok, probably less stress, but then? Naively I thought I would have get to a senior level adopting a learning by doing approach. I have to say, somehow that is true, but is not enough.
 
 During my hacking here and there I started to mature the idea that to code is a **supreme** intellectual practise, where we try to **formalize** and **represent** the complex processes behind **human cognition**. 
-How cool is that? There's a lot of implications here, an expensive mix of **abstraction power** and **theoretical knowledge**, where the first can't be effective at all without the second as a foundation.
+How cool is that? There's a lot of implications here, an expensive mix of **abstraction power** and **theoretical knowledge**, where the first can't be effective at all without the second one as a foundation.
 
 If you want to be a credible developer first you have to know the rules (syntax, concepts, best practises) then you can build whatever you want, you can explore and use all the related technologies the world out there has to offer, and finally you can learn any new language or master any new skill, cause you got which is the right approach in learning.
 
