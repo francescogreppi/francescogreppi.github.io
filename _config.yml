@@ -9,7 +9,7 @@
 title: I don't know JS
 email: francesco.greppi@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  **I don't know JS** is my personal approach to the discovery of Javascript. I'll write this blog to explain to myself in a concise way all the concepts that are at the core of Javascript.
+  <strong>I don't know JS</strong> is my personal approach to the discovery of Javascript. I'll write this blog to explain to myself in a concise way all the concepts that are at the core of Javascript.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 github_username: francescogreppi
