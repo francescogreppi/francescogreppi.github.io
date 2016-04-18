@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "I don't know JS - Introduction"
+title:  "Introduction"
 date:   2016-04-15 17:16:57 +0100
 categories: Javascript
 ---
