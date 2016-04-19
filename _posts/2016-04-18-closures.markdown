@@ -8,7 +8,7 @@ categories: Javascript
 Since I started programming in Javascript I always knew that functions can access their outer scope. It's a pattern you can easily identify when palying a bit with functions in the console. 
 This pattern is called closure and there's much more to know about it than the simplistic definition given above.
 
-#The lexical environment# 
+# The lexical environment # 
 
 To understand what is a closure I first have to introduce the lexical environment.
 
