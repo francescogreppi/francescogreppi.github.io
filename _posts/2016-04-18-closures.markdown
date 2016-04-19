@@ -37,22 +37,29 @@ globalEnvironment = {
 	
 	environmentRecord : {
 
-		//built-ins
+		// here we have built-ins such as object and array
 		Object: function,
 		Array: function
-		//etc
+	    // etc..
 
-		// bindings
-		a:1
+		// and we have bindings
+		a:1,
+		foo: function
+
 	},
 
-	// we don't have anything else external to the global scope
+	// nothing external to the global scope
 	outer: null
 };
 
 // environment of the foo function
 fooEnvironment = {
 	environmentRecord: {
+		// built-ins
+		Object: function,
+		Array: function
+
+		// bindings
 		b:3
 	},
 
@@ -71,7 +78,7 @@ Look at this example.
 {% highlight ruby %}
 
 // here we have a global scope as before, with its own environment record
-// where the binding is a:'Hellow' and sayHello: function
+// where the binding is a:\'Hellow\' and sayHello: function
 
 var a = 'Hellow';
 
