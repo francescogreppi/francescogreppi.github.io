@@ -42,9 +42,8 @@ globalEnvironment = {
 
 		// here we have built-ins such as object and array
 		Object: function,
-		Array: function
+		Array: function,
 	    // etc..
-
 		// and we have bindings
 		a:1,
 		foo: function
@@ -60,8 +59,7 @@ fooEnvironment = {
 	environmentRecord: {
 		// built-ins
 		Object: function,
-		Array: function
-
+		Array: function,
 		// bindings
 		b:3
 	},
