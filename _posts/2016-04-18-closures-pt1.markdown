@@ -89,7 +89,7 @@ function splitHello(){
 	// we are also using the built-in split() function, from the global scope
 	// but where is a? and how split() is accessed?
 
-	alert (a);
+	var b = a.split();
 }
 ```
 
