@@ -100,4 +100,4 @@ function sayHello(){
 
 The `a` variable is not found within the function scope but, thanks to the lexical environment reference, the function is able to look for the variable in the outer scope, finally using it for its own purpose.
 
-So far I discussed the concept of lexical environment, let's now extend it to the case of nested functions where we have **chains of lexical environments**. Click [here](http://francescogreppi.github.io/javascript/2016/04/18/closures-pt2.html) to continue.
+So far I discussed the concept of lexical environment, let's now extend it to the case of nested functions where we have **chains of lexical environments**. Click [here](http://francescogreppi.github.io/javascript/2016/04/20/closures-pt2.html) to continue.
