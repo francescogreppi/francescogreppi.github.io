@@ -38,7 +38,7 @@ We have two lexical environments here:
 Let's look at the snippet below to better understand it.
 
 ```javascript
-// global context environment
+// global context environment (window object if you are on the client side)
 globalEnvironment = {
 	
 	environmentRecord : {
@@ -60,9 +60,6 @@ globalEnvironment = {
 // environment of the foo function
 fooEnvironment = {
 	environmentRecord: {
-		// built-ins
-		Object: function,
-		Array: function,
 		// bindings
 		b:3
 	},
@@ -79,25 +76,23 @@ When a function **runs** it creates its own `[[Scope]]` and thus its own lexical
 Look at this example.
 
 ```javascript
-
 // here we have a global scope as before, with its own environment record
-// where the binding is a:'Hellow' and sayHello: function
+// where the binding is a:'Hellow' and splitHello: function
 
 var a = 'Hellow';
 
-function sayHello(){
+function splitHello(){
 	
 	// here we have the function scope, with its own ENVIRONMENT RECORD 
 	// AND with the REFERENCE to the outer scope
 	// remember, the function scope is created WHEN the function RUNS
-	// we are using the built-in alert to print on the browser the value of a
-	// but where is a? 
+	// we are also using the built-in split() function, from the global scope
+	// but where is a? and how split() is accessed?
 
 	alert (a);
 }
-
 ```
 
-The `a` variable is not found within the function scope but, thanks to the lexical environment reference, the function is able to look for the variable in the outer scope, finally using it for its own purpose.
+The `a` variable and `split()` built-in are not found within the function scope but, thanks to the lexical environment reference, the function is able to look for them into the outer scope, finally using them for its own purpose. Cool uh?
 
 So far I discussed the concept of lexical environment, let's now extend it to the case of nested functions where we have **chains of lexical environments**. Click [here](javascript/2016/04/20/closures-pt2.html) to continue.
