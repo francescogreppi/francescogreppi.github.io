@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Closures"
+title:  "Closures pt.1 - the lexical environment"
 date:   2016-04-18 14:00:57 +0100
 categories: Javascript
 ---
@@ -14,7 +14,7 @@ To understand what is a closure I first have to introduce the lexical environmen
 
 > A lexical environment defines the association of identifiers to the values of variables and functions based upon the lexical nesting structures of ECMAScript code.
 
-What is cool about a lexical environment is that it consists of two components: 
+What is cool about the lexical environment is that it consists of two components: 
 
 * the **environment record** where are listed all the bindings of variables/functions to their values
 * the **reference** to the outher scope.
@@ -43,7 +43,7 @@ globalEnvironment = {
 		// here we have built-ins such as object and array
 		Object: function,
 		Array: function,
-	    // etc..
+		// etc..
 		// and we have bindings
 		a:1,
 		foo: function
@@ -95,4 +95,4 @@ function sayHello(){
 
 {% endhighlight %}
 
-The `a` variable is not found within the function scope. But thanks to the lexical environment refernce the function is able to look for the variable in the outer scope, using it for its own purpose.
+The `a` variable is not found within the function scope. But thanks to the lexical environment reference the function is able to look for the variable in the outer scope, using it for its own purpose.
