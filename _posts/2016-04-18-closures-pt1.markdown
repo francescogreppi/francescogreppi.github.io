@@ -17,24 +17,27 @@ To understand what is a closure I first have to introduce the lexical environmen
 What is cool about the lexical environment is that it consists of two components: 
 
 * the **environment record** where are listed all the bindings of variables/functions to their values
-* the **reference** to the outher scope.
+* the **reference** to the outher scope
 
 Look at the example:
 
-{% highlight ruby %}
 
+```javascript
 	var a = 1;
 	
 	function foo(){
 		var b = 3;
 	}
+```
 
-{% endhighlight %}
+We have two lexical environments here: 
 
-We have two environments, one is related to the global context and the other one is related to the `foo()` function:
+* one is related to the **global context**
+* the other one is related to the `foo()` function
 
-{% highlight ruby %}
+Let's look at the snippet below to better understand it.
 
+```javascript
 // global context environment
 globalEnvironment = {
 	
@@ -67,8 +70,7 @@ fooEnvironment = {
 	// here we reference the global scope as the outer environment
 	outer: globalEnvironment
 }
-
-{% endhighlight %}
+```
 
 When a function is **created** it is associated to the lexical environment to which it belongs via an hidden property called `[[Scope]]`.
 
@@ -76,7 +78,7 @@ When a function **runs** it creates its own `[[Scope]]` and thus its own lexical
 
 Look at this example.
 
-{% highlight ruby %}
+```javascript
 
 // here we have a global scope as before, with its own environment record
 // where the binding is a:'Hellow' and sayHello: function
@@ -85,14 +87,17 @@ var a = 'Hellow';
 
 function sayHello(){
 	
-	// here we have the function scope, also with its own environment record AND with the reference to the outer scope
-	// remember, the function scope is created when the function runs
-	// we are using the built-in function alert to print on the browser the value of a
+	// here we have the function scope, with its own ENVIRONMENT RECORD 
+	// AND with the REFERENCE to the outer scope
+	// remember, the function scope is created WHEN the function RUNS
+	// we are using the built-in alert to print on the browser the value of a
 	// but where is a? 
 
 	alert (a);
 }
 
-{% endhighlight %}
+```
 
-The `a` variable is not found within the function scope. But thanks to the lexical environment reference the function is able to look for the variable in the outer scope, using it for its own purpose.
+The `a` variable is not found within the function scope but, thanks to the lexical environment reference, the function is able to look for the variable in the outer scope, finally using it for its own purpose.
+
+So far I discussed the concept of lexical environment, let's now extend it to the case of nested functions where we have **chains of lexical environments**. Click [here](http://francescogreppi.github.io/javascript/2016/04/18/closures-pt2.html) to continue.
