@@ -10,7 +10,7 @@ I don't know anything about javascript, period. If you get to this blog probably
 I 'code' Javascript since two years, and so far I've always adopted the so-called 'chip shop' attitude, frenetically browsing blogs and websites, looking for pre-built solutions that just need a little fix here and there. 
 I have to admit it: I'm not always fully getting the sense of what I'm writing.
 
-During the first years of my professional life I mostly covered business roles, always exposed to the tech side of things but never enough to being fascinated by coding. At a certain point I decided to switch to a proper developer role. I was convinced, and I'm still are, it would have been a good choice in terms of quality of life. 
+During the first years of my professional life I mostly covered business roles, always exposed to the tech side of things but never enough to being fascinated by coding. At a certain point I decided to switch to a proper developer role. I was convinced, and I still am, it would have been a good choice in terms of quality of life. 
 In a tech role you are less exposed to the political conflicts that normally happen within a company (and all the stress that comes with it), which is something I never appreciated too much. It's simply a matter of personality, some people handle it, some people don't. 
 
 Thus, my switch to development started as a strategic move, but yet without the awarness of what being a developer really means. Ok, probably less stress, but then? Naively I thought I would have get to a senior level adopting a learning by doing approach. I have to say, somehow that is true, but is not enough.
