@@ -95,4 +95,4 @@ function splitHello(){
 
 The `a` variable and `split()` built-in function are not found within the function scope but, thanks to the lexical environment reference, the function is able to look for them into the outer scope, finally using them for its own purpose. Cool uh?
 
-So far I discussed the concept of lexical environment, let's now extend it to the case of nested functions where we have **chains of lexical environments**. Click [here](javascript/2016/04/20/closures-pt2.html) to continue.
+So far I discussed the concept of lexical environment, let's now extend it to the case of nested functions where we have **chains of lexical environments**. Click [here](/javascript/2016/04/20/closures-pt2.html) to continue.
