@@ -41,4 +41,4 @@ That's the concept of closure. I'm still a bit confused, but let me report below
 
 Yes, that starts to make sense now. A closure is a function that can remember its environment, basically the lexical environment where it was created. 
 
-So, when we declare `say2`, we are creating a special object that combines a function (function(){console.log(text)}) and the environment in which that function was created, in this case the lexical environment of sayHello(), where we have the variable `text` and the parameter `name`.
+So, when we declare `say2`, we are creating a special object that combines a function (`function(){console.log(text)}`) and the environment in which that function was created, in this case the lexical environment of `sayHello()`, where we have the variable `text` and the parameter `name`.
