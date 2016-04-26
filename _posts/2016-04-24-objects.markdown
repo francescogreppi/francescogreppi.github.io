@@ -70,11 +70,13 @@ That's because the value is stored as a reference in an object. So when you pass
 ### Where things get confusing ###
 Ok, we said so far that primitves are immutable, and their value is directly stored in the variable. Objects store instead by reference their value, in a key-value format, where value can be either a number, a sting or a function. The latter is also called method.
 Ok so how do I explain the below?
+
 ```javascript
 var a="I'm a string"; // string is a primitive
 
 var b = a.toLowerCase(); // What? how can a primitive have a method
 ```
+
 **How can a string, which is a primitive, have a method?** That's pretty weird, isn't it?
 The above is possible because Javascript, behind the scenes, creates a wrapper object (`String`, `Number`, `Boolean`) around our primitives. This happens all the time the code is trying to access built-in properties for a given primitive (i.e. `toLowerCase()` method).
 Here's what happens: 
