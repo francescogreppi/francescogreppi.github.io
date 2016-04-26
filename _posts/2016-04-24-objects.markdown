@@ -5,8 +5,6 @@ date:   2016-04-24 13:00:00 +0100
 categories: Javascript
 ---
 
-Wow wow wow, that thing of exploring javascript starts to be exciting. 
-
 Every blog, book or whatever I'm reading about Javascript, at a certain point is mentioning that in Javascript almost everything is an object. What does that mean exactly? Let's have a look at it.
 
 ### Data types: primitives vs object ###
