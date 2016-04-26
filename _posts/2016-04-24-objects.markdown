@@ -1,0 +1,91 @@
+---
+layout: post
+title:  "Why almost everything is an object in JS"
+date:   2016-04-24 13:00:00 +0100
+categories: Javascript
+---
+
+Wow wow wow, that thing of exploring javascript starts to be exciting. 
+
+Every blog, book or whatever I'm reading about Javascript, at a certain point is mentioning that in Javascript almost everything is an object. What does that mean exactly? Let's have a look at it.
+
+### Data types: primitives vs object ###
+In Javascript we have 7 data types. The following 6 are primitives:
+
+* Boolean
+* Null
+* Undefined
+* Number
+* String
+* Symbol (new in ECMAScript 6)
+
+and then we have the **object**, which is the only one not to be primitive. Why?
+
+Well, first of all **primitives are immutable**, which means they're always equals to themselves.
+To clarify: a number data type will always be a number, a string will always be a string, and so on.
+
+In the case of the object is different: in fact, an object consists in a list of primitives data types (and sometimes reference data types) that is stored as a series of key-value pairs. Each item in the list is called a property (functions are called methods). 
+
+Example below:
+
+```javascript
+var superCoolObject = {
+	name: 'String Name',
+	age: 24 //number
+	sayHello: function(){ alert ('Hello');} //method
+}
+```
+So, in the object above we have three key-value pairs: a string, a number and a function. We can easily understand the **mutable nature of the object**, compared to its primitive 'cousins'.
+
+Another important aspect is the way values are associated. In primitives the association of the value to the variable is direct. Example:
+
+```javascript
+var color = "red";
+var colorInstance = color;
+color = "yellow";
+
+console.log(colorInstance); //Red
+console.log(color); //Yellow
+```
+
+As we can see `colorInstance` takes the inital value of `color`, which is red. In a second moment the value of `color` is changed to yellow. When we console log the two variables we see that `colorInstance` kept the initial value of `color`, while `color` has instead the new declared value. That's because, as we said, the value get stored into the variable at the moment of the association.
+
+In the case of objects the value is stored as a reference. See below.
+
+```javascript
+var color = {
+	name: "red"
+	}
+var colorInstance = color;
+color.name = "yellow";
+
+console.log(color.name); //yellow
+console.log(colorInstance.name); //yellow
+```
+
+We create a key-value pair when we declare the `color` object, where `name` has string `"red"`. Then we create a new variable to which we associate the color object. Same way we did in the previous example.
+Now, what happens when we change the value of `color.name`? Well as it can be seen, the value of colorInstance.name changes too. 
+That's because the value is stored as a reference in an object. So when you pass a given object to another variable, you're passing that reference too.
+
+### Where things get confusing ###
+Ok, we said so far that primitves are immutable, and their value is directly stored in the variable. Objects store instead by reference their value, in a key-value format, where value can be either a number, a sting or a function. The latter is also called method.
+Ok so how do I explain the below?
+```Javascript
+var a="I'm a string"; // string is a primitive
+
+var b = a.toLowerCase(); // What? how can a primitive have a method
+```
+**How can a string, which is a primitive, have a method?** That's pretty weird, isn't it?
+The above is possible because Javascript, behind the scenes, creates a wrapper object (`String`, `Number`, `Boolean`) around our primitives. This happens all the time the code is trying to access built-in properties for a given primitive (i.e. `toLowerCase()` method).
+Here's what happens: 
+
+1. `a.toLowerCase()` is called
+2. Javascript creates a wrapper `String` object from `a`. Basically it computes `new String(a)`
+3. then it calls the `toLowerCase()` method from the string object previously created
+4. string object is discarded
+5. a lowercase string is returned in `b`. 
+
+Note that what is returned is still a primitive, not an object. As we said, string will always be a prmitive and equals to itself. The trick Javascript does, for commodity, it's to do the passage automatically for us, using the String constructor to access the built-in methods, operating whatever we need to do on our string, and returning it back as a primtive. Cool!
+
+**Conclusion**
+TBD
