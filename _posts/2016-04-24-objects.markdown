@@ -77,6 +77,7 @@ var b = a.toLowerCase(); // What? how can a primitive have a method?!
 ```
 
 **How can a string, which is a primitive, have a method?** 
+
 The above is possible because Javascript, behind the scenes, "wrap" the primitive value in an object, which is called **wrapper object**. Note that is true only for the primitives `String`, `Number` and `Boolean`. `Undefined` and `Null` do not have a wrapper object.
 
 Below is reported what happens step by step, when Javascript runs and a built-in property for a given primitive is executed. Let's take as example the `toLowerCase()` method, which is applied to the string primitive. The scenario is really simple, Javascript runs, find on its way `a.toLowerCase()` and executes it:
@@ -97,6 +98,7 @@ new Function ([arg1[, arg2[, ...argN]],] functionBody)
 ```
 
 **Why typeof does return function?**
+
 You may have noticed that if you evaulate a function with `typeof`, you'll get as result `function` instead of `object`.
 
 ```javascript
