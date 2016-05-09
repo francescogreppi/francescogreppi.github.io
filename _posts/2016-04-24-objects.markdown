@@ -7,7 +7,7 @@ categories: Javascript
 
 Every blog, book or whatever I'm reading about Javascript, at a certain point is mentioning that in Javascript almost everything is an object. What does that mean exactly? Let's have a look at it.
 
-### Data types: primitives vs object ###
+### Data types: primitives and object ###
 In Javascript we have 7 data types. The following 6 are primitives:
 
 * Boolean
@@ -17,23 +17,23 @@ In Javascript we have 7 data types. The following 6 are primitives:
 * String
 * Symbol (new in ECMAScript 6)
 
-and then we have the **object**, which is the only one not to be primitive. Why?
+The **object** is the only data type **not to be** primitive. Why?
 
-Well, first of all **primitives are immutable**, which means they're always equals to themselves.
-To clarify: a number data type will always be a number, a string will always be a string, and so on.
+First reason is **primitives are immutable**, which means they're always equals to themselves. A number data type will always be a number, a string will always be a string, and so on.
 
-In the case of the object is different: in fact, an object consists in a list of primitives data types (and sometimes reference data types) that is stored as a series of key-value pairs. Each item in the list is called a property (functions are called methods). 
+Dissimilarly, an object consists in a list of primitives data types (and sometimes reference data types) that is stored as a series of key-value pairs. Each item in the list is called a property (functions are called methods). 
 
 Example below:
 
 ```javascript
 var superCoolObject = {
-	name: 'String Name',
-	age: 24 //number
+	name: 'String Name', //property string
+	age: 24 //property number
 	sayHello: function(){ alert ('Hello');} //method
 }
 ```
-So, in the object above we have three key-value pairs: a string, a number and a function. We can easily understand the **mutable nature of the object**, compared to its primitive 'cousins'.
+
+In the object above we have three key-value pairs: a string, a number and a function. We can easily understand the **mutable nature of the object**, compared to its primitive.
 
 Another important aspect is the way values are associated. In primitives the association of the value to the variable is direct. Example:
 
@@ -42,13 +42,13 @@ var color = "red";
 var colorInstance = color;
 color = "yellow";
 
-console.log(colorInstance); //Red
-console.log(color); //Yellow
+console.log(colorInstance); //red
+console.log(color); //yellow
 ```
 
-As we can see `colorInstance` takes the inital value of `color`, which is red. In a second moment the value of `color` is changed to yellow. When we console log the two variables we see that `colorInstance` kept the initial value of `color`, while `color` has instead the new declared value. That's because, as we said, the value get stored into the variable at the moment of the association.
+As it can be seen, the variable `colorInstance` takes the initial value of the variable `color`, which is "red". Subsequently, the value of `color` is changed to "yellow". When we console log the two variables we see that `colorInstance` kept the initial value of `color`, which is "red", while `color` has the most recent value "yellow". That happens because the value is stored into the variable at the moment of the association, it that sense we can say the association is direct.
 
-In the case of objects the value is stored as a reference. See below.
+Differently, in objects the value is stored as a reference. See below.
 
 ```javascript
 var color = {
@@ -61,31 +61,52 @@ console.log(color.name); //yellow
 console.log(colorInstance.name); //yellow
 ```
 
-We create a key-value pair when we declare the `color` object, where `name` has string `"red"`. Then we create a new variable to which we associate the color object. Same way we did in the previous example.
-Now, what happens when we change the value of `color.name`? Well as it can be seen, the value of colorInstance.name changes too. 
-That's because the value is stored as a reference in an object. So when you pass a given object to another variable, you're passing that reference too.
+A key-value pair is created when declaring the `color` object, where “name” has the string "red"`. A new variable `colorInstance` is then created, and associated to the `color` object.
+What happens when the value of `color.name` is subsequently changed? 
+As it can be seen, the value of colorInstance.name changes too. 
+That is because the value is stored as a reference in an object. When a given object is stored into a new variable, its reference is inherited and stored too.
 
 ### Where things get confusing ###
-Ok, we said so far that primitves are immutable, and their value is directly stored in the variable. Objects store instead by reference their value, in a key-value format, where value can be either a number, a sting or a function. The latter is also called method.
-Ok so how do I explain the below?
+So far we've seen that primitives are immutable, and their value is directly stored in the variable. Objects instead, store their values by reference, in a key-value format, where the value can be either a number, a string or a function (method). 
+Crystal clear. However, how can be explained the below?
 
 ```javascript
 var a="I'm a string"; // string is a primitive
 
-var b = a.toLowerCase(); // What? how can a primitive have a method
+var b = a.toLowerCase(); // What? how can a primitive have a method?!
 ```
 
-**How can a string, which is a primitive, have a method?** That's pretty weird, isn't it?
-The above is possible because Javascript, behind the scenes, creates a wrapper object (`String`, `Number`, `Boolean`) around our primitives. This happens all the time the code is trying to access built-in properties for a given primitive (i.e. `toLowerCase()` method).
-Here's what happens: 
+**How can a string, which is a primitive, have a method?** 
+The above is possible because Javascript, behind the scenes, "wrap" the primitive value in an object, which is called **wrapper object**. Note that is true only for the primitives `String`, `Number` and `Boolean`. `Undefined` and `Null` do not have a wrapper object.
 
-1. `a.toLowerCase()` is called
-2. Javascript creates a wrapper `String` object from `a`. Basically it computes `new String(a)`
-3. then it calls the `toLowerCase()` method from the string object previously created
-4. string object is discarded
-5. a lowercase string is returned in `b`. 
+Below is reported what happens step by step, when Javascript runs and a built-in property for a given primitive is executed. Let's take as example the `toLowerCase()` method, which is applied to the string primitive. The scenario is really simple, Javascript runs, find on its way `a.toLowerCase()` and executes it:
 
-Note that what is returned is still a primitive, not an object. As we said, string will always be a prmitive and equals to itself. The trick Javascript does, for commodity, it's to do the passage automatically for us, using the String constructor to access the built-in methods, operating whatever we need to do on our string, and returning it back as a primtive. Cool!
+1. Javascript creates a wrapper `String` object from `a`, which means it computes `new String(a)`
+2. then, it calls the `toLowerCase()` method from the string object previously created
+3. `toLowerCase()` is performed on the string `a`
+3. the string wrapper object is discarded
+4. `a` lowercase string is returned in the variable `b`. 
 
-**Conclusion**
-TBD
+Note that what is returned is still a primitive, not an object. As said, the string will always be a primitive and equals to itself. The trick Javascript does, for commodity, is to do the passage automatically for us, using the String constructor to access the built-in methods, operating whatever is needed, and returning back the value as a primitive. Nice one!
+
+### What about functions? ###
+Functions are objects, whenever we create a function in Javascript we are calling the `Function` constructor.
+
+```javascript
+new Function ([arg1[, arg2[, ...argN]],] functionBody)
+```
+
+**Why typeof does return function?**
+You may have noticed that if you evaulate a function with `typeof`, you'll get as result `function` instead of `object`.
+
+```javascript
+var a = function(){
+	alert('Hi bud!');
+};
+
+console.log(typeof a);
+// function
+
+```
+
+We know of course that a function is an object. However Javascript `typeof` prefers to return `function` as a result for simplicity.
