@@ -111,4 +111,16 @@ console.log(typeof a);
 
 ```
 
-We know of course that a function is an object. However Javascript `typeof` prefers to return `function` as a result for simplicity.
+We know of course that a function is an object. However, Javascript `typeof` prefers to return `function` for better readability.
+
+### Undefined and null ###
+We didn't speak about undefined and null so far. As it has been said previously they are two primitives. 
+
+**Undefined** means a variable has been created but has not yet a value assigned. Undefined is a type itself.
+
+**Null** represents an assignment to a variable and it indicates *no value*. If you run `typeof null` you'll see that `object` is returned. Pretty weird if you consider that `null` is supposed to be a primitive. 
+
+The reason for this was actually an error in the original implementation of JavaScript. The error was then copied in ECMAScript. Nevertheless, it is rationalized that null is considered a placeholder for an object, even though, technically, it is a primitive value.
+
+
+There is much more to say about the nature of Javascript and especially about objects. However, the purpose of this article is just to give a first understanding of data types and why object is so special and predominant in Javascript. More insights will follow. Back to [home](/).  
