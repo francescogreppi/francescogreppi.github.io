@@ -1,0 +1,76 @@
+http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
+http://www.javascriptkit.com/javatutors/oopjs.shtml
+---
+layout: post
+title:  "Object Oriented Programming in JS"
+date:   2016-05-20 14:00:00 +0100
+categories: Javascript
+---
+
+### Why objects are great ###
+
+Objects are the perfect formalization of the world we experience. They literally act like the objects we see in a real life situation. Think about a pen. It has properties like shape, length or color and it has methods (actions) as well, for instance writing or drawing.
+
+As we've seen in a precedent article, Javascript is structurally made of objects. However, with Javascript we can make our own objects and use them to encapsulate events that fire whenever is needed. 
+This development approach is known as *Object Oriented Programming* (OOP) and it refers to using self-contained pieces of code (objects) to represent a specific functionality/behavior of an application. 
+
+Thanks to objects it is possible to adopt some really useful techniques such as *Inheritance* (objects can inherit features from other objects), *Polymorphism* (objects can share the same interface - how they are accessed and used—while their underlying implementation of the interface may differ), and *Encapsulation* (each object is responsible for specific tasks). We'll see them in a bit.
+
+### Create an object ###
+
+You can create an object in three ways, the first one is **Literal Notation**. Here's an example:
+
+```javascript
+var person = {
+	firstName : "John",
+	lastName : "Doe",
+	age: 25,
+	height: 180
+}
+```
+Another way you can create an object is by using the Javascript Keyword `new`. Here's how it looks like:
+
+```javascript
+var person = new Object();
+
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 25;
+person.height = 180;
+```
+As you may notice by comparing the two examples above, the Javascript Keyword `new` method is less readable and requires more statements. With literal notation you can define and create an object in one single statement, providing at a single glance the structure of the object. That's why literal notation way is preferable when creating objects.
+
+The last way of creating object is by using an *object constructor* and here is where things get more insteresting. In the previous examples we created a single object which stand by itself. What if we want to create a *structure* which can then be used to create multiple object instances? Well, in that case an object constructor is coming to save us. Let's have a look to an example:
+
+```javascript
+//I create my object structure via an object constructor
+function person(first, last, age, height) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.height = height;
+}
+//I create multiple instances via the javascript keyword new
+var myBruv = new person("Mark", "Doe", 30, 185);
+var mySis = new person("Hannah", "Doe", 22, 170);
+```
+####What is an object constructor####
+Technically is a regular JavaScript function, and it comes with all the advantages of it (i.e. possibility of passing parameters and having nested functions). The only difference between a function and a constructor is that the latter is called via the `new` operator, which is the javascript keyword we use to create objects. Also, in an object constructor we use `this` to reference the properties and methods related to an object. 
+
+####What about "this"?####
+In JavaScript we consider `this` that entity (the object) within a constructor to which associated properities and methods belong. The value of this will become the new object when the constructor is used to create an object. Example:
+
+```javascript
+// constructor
+function laptop(brand, model, price) {
+	// "this" can be considered as a placeholder for the instance we are going to create later
+    this.brand = first;
+    this.model = last;
+    this.price = price;
+}
+
+// when we create an object via new keyword
+// "this" is replaced by the variable we declared (our new object) 
+var lenovoLaptop = new laptop("Lenovo", "T450s", "£999");
+
+```
