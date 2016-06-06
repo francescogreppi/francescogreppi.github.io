@@ -52,10 +52,10 @@ function person(first, last, age, height) {
 var myBruv = new person("Mark", "Doe", 30, 185);
 var mySis = new person("Hannah", "Doe", 22, 170);
 ```
-###What is an object constructor###
+#### What is an object constructor ####
 Technically is a regular JavaScript function, and it comes with all the advantages of it (i.e. possibility of passing parameters and having nested functions). The only difference between a function and a constructor is that the latter is called via the `new` operator, which is the javascript keyword we use to create objects. Also, in an object constructor we use `this` to reference the properties and methods related to an object. 
 
-###What about "this"?###
+#### What about "this"? ####
 In JavaScript we consider `this` that entity (the object) within a constructor to which associated properities and methods belong. The value of this will become the new object when the constructor is used to create an object. Example:
 
 ```javascript
