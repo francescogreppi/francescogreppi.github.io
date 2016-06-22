@@ -12,7 +12,7 @@ Objects are the perfect formalization of the world we experience. They literally
 As we've seen in a precedent article, Javascript is structurally made of objects. However, with Javascript we can make our own objects and use them to encapsulate events that fire whenever is needed. 
 This development approach is known as *Object Oriented Programming* (OOP) and it refers to using self-contained pieces of code (objects) to represent a specific functionality/behavior of an application. 
 
-Thanks to objects it is possible to adopt some really useful techniques such as *Inheritance* (objects can inherit features from other objects), *Polymorphism* (objects can share the same interface - how they are accessed and used—while their underlying implementation of the interface may differ), and *Encapsulation* (each object is responsible for specific tasks). We'll see them in a bit.
+Thanks to objects it is possible to adopt some really useful techniques such as *Inheritance* (objects can inherit features from other objects), *Polymorphism* (objects can share the same interface - how they are accessed and used—while their underlying implementation of the interface may differ), and *Encapsulation* (each object is responsible for specific tasks). We'll see them soon.
 
 ### Create an object ###
 
@@ -55,15 +55,15 @@ var mySis = new person("Hannah", "Doe", 22, 170);
 #### What is an object constructor ####
 Technically is a regular JavaScript function, and it comes with all the advantages of it (i.e. possibility of passing parameters and having nested functions). The only difference between a function and a constructor is that the latter is called via the `new` operator, which is the javascript keyword we use to create objects. Also, in an object constructor we use `this` to reference the properties and methods related to an object. 
 
-#### What about "this"? ####
+#### What about 'this'? ####
 In JavaScript we consider `this` that entity (the object) within a constructor to which associated properities and methods belong. The value of this will become the new object when the constructor is used to create an object. Example:
 
 ```javascript
 // constructor
 function laptop(brand, model, price) {
 	// "this" can be considered as a placeholder for the instance we are going to create later
-    this.brand = first;
-    this.model = last;
+    this.brand = brand;
+    this.model = model;
     this.price = price;
 }
 
@@ -72,3 +72,29 @@ function laptop(brand, model, price) {
 var lenovoLaptop = new laptop("Lenovo", "T450s", "£999");
 
 ```
+
+#### Encapsulation and Inheritance ####
+We actually see these two important properties of objects taking place in the previous examples. However let's see more in details what they do represent.
+
+The term *encapsulation* refers to enclosing all the properties and methods of an object within that object so that they are hidden from the rest of the application. Why do we need that? Because we want to write a clean and well structured code. We want localize in an object and abstract specific sets of properties/methods.
+
+What do we mean by abstracting a specific set of properties and methods? The *abstraction principle* is at the foundation of computer programming and it aims to reduce redundant code:
+
+- each significant piece of functionality in a program should be implemented in a single place in the source code;
+- if some functionalites are similar between them, then it is recommended to declare the common parts into a single place;
+
+This principle is important in this context beacuse it helps to better understand object *inheritance* and why it is so powerful. Inheritance refers to an object being able to inherit methods and properties from a parent object. Example below:
+
+```javascript
+// constructor
+function City(name, inhabitants, country) {
+    this.name = name;
+    this.inhabitants = inhabitants;
+    this.country = country;
+}
+
+var London = new City("London", "8 million", "United Kingdom");
+```
+
+In the example above, `London` is an object that is created from the `City` constructor function. Both `London` and `City` are objects (in case of `City` remember that functions are objects). The only difference between the two is that one is an *instance* of the other. What an instance is? An instance can be considered as an implementation of a function (the constructor), hence a copy of an object.
+*Inheritance happens when an instance is created*, and so all the properties and methods of the constructor an inherited by the object (instance) created. That's an extremely powerful concept if we want to develop maintainable, efficient and scalable applications.
