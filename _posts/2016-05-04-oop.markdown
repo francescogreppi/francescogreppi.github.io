@@ -9,8 +9,8 @@ categories: Javascript
 
 Objects are the perfect formalization of the world we experience. They literally act like the objects we see in a real life situation. Think about a pen. It has properties like shape, length or color and it has methods (actions) as well, for instance writing or drawing.
 
-As we've seen in a precedent article, Javascript is structurally made of objects. However, with Javascript we can make our own objects and use them to encapsulate events that fire whenever is needed. 
-This development approach is known as *Object Oriented Programming* (OOP) and it refers to using self-contained pieces of code (objects) to represent a specific functionality/behavior of an application. 
+As we've seen in a precedent article, Javascript is structurally made of objects. However, with Javascript we can make our own objects and use them to encapsulate events that fire whenever is needed.
+This development approach is known as *Object Oriented Programming* (OOP) and it refers to using self-contained pieces of code (objects) to represent a specific functionality/behavior of an application.
 
 Thanks to objects it is possible to adopt some really useful techniques such as *Inheritance* (objects can inherit features from other objects), *Polymorphism* (objects can share the same interface - how they are accessed and used—while their underlying implementation of the interface may differ), and *Encapsulation* (each object is responsible for specific tasks). We'll see them soon.
 
@@ -38,7 +38,7 @@ person.height = 180;
 ```
 As you may notice by comparing the two examples above, the Javascript Keyword `new` method is less readable and requires more statements. With literal notation you can define and create an object in one single statement, providing at a single glance the structure of the object. That's why literal notation way is preferable when creating objects.
 
-The last way of creating object is by using an *object constructor* and here is where things get more insteresting. In the previous examples we created a single object which stand by itself. What if we want to create a *structure* which can then be used to create multiple object instances? Well, in that case an object constructor is coming to save us. Let's have a look to an example:
+The last way of creating object is by using an **object constructor** and here is where things get more interesting. In the previous examples we created a single object which stand by itself. What if we want to create a **structure** which can then be used to create multiple object instances? Well, in that case an object constructor is coming to save us. Let's have a look to an example:
 
 ```javascript
 //I create my object structure via an object constructor
@@ -52,11 +52,11 @@ function person(first, last, age, height) {
 var myBruv = new person("Mark", "Doe", 30, 185);
 var mySis = new person("Hannah", "Doe", 22, 170);
 ```
-#### What is an object constructor ####
-Technically is a regular JavaScript function, and it comes with all the advantages of it (i.e. possibility of passing parameters and having nested functions). The only difference between a function and a constructor is that the latter is called via the `new` operator, which is the javascript keyword we use to create objects. Also, in an object constructor we use `this` to reference the properties and methods related to an object. 
+#### What is an object constructor####
+Technically is a regular JavaScript function, and it comes with all the advantages of it (i.e. possibility of passing parameters and having nested functions). The only difference between a function and a constructor is that the latter is called via the `new` operator, which is the Javascript keyword we use to create objects. Also, in an object constructor we use `this` to reference the properties and methods related to an object.
 
 #### What about 'this'? ####
-In JavaScript we consider `this` that entity (the object) within a constructor to which associated properities and methods belong. The value of this will become the new object when the constructor is used to create an object. Example:
+In JavaScript we consider `this` that entity (the object) within a constructor to which associated properties and methods belong. The value of this will become the new object when the constructor is used to create an object. Example:
 
 ```javascript
 // constructor
@@ -68,10 +68,26 @@ function laptop(brand, model, price) {
 }
 
 // when we create an object via new keyword
-// "this" is replaced by the variable we declared (our new object) 
+// "this" is replaced by the variable we declared (our new object)
 var lenovoLaptop = new laptop("Lenovo", "T450s", "£999");
 
 ```
+
+#### ... and prototype? ####
+At this point things get quite interesting. As we previously said a constructor is a function and a function is a special kind of object with its own properties.
+**Prototype** is one of those and it's just an empty object (apart from built-ins such date). When an object is constructed, it inherits all of the properties of its constructor’s prototype, as follows
+```
+// the Dog prototype initially empty get the breed property
+Dog.prototype.breed = "English Setter";
+// I create the Dog instance via new keyword
+var bobby= new Dog;
+//constructor inherits prototype properties if any
+Dog.breed;         // English Setter
+
+```
+The Dog instance get the breed property from Dog‘s prototype. This kind of inheritance is more than copying properties to the new objects. The object is made to reflect the changes happening in its constructor’s prototype. That means that it's possible to change the prototype later, and see the changes reflected in the instance.
+At this point should be clear what is the difference between a prototype and an object constructor function?
+A constructor is a pointer while prototype is a property of Function() objects. No other type of objects have this property.
 
 #### Encapsulation and Inheritance ####
 We actually see these two important properties of objects taking place in the previous examples. However let's see more in details what they do represent.
@@ -87,9 +103,9 @@ This principle is important in this context beacuse it helps to better understan
 
 ```javascript
 // constructor
-function City(name, inhabitants, country) {
+function City(name, population, country) {
     this.name = name;
-    this.inhabitants = inhabitants;
+    this.population = population;
     this.country = country;
 }
 
@@ -98,3 +114,10 @@ var London = new City("London", "8 million", "United Kingdom");
 
 In the example above, `London` is an object that is created from the `City` constructor function. Both `London` and `City` are objects (in case of `City` remember that functions are objects). The only difference between the two is that one is an *instance* of the other. What an instance is? An instance can be considered as an implementation of a function (the constructor), hence a copy of an object.
 *Inheritance happens when an instance is created*, and so all the properties and methods of the constructor an inherited by the object (instance) created. That's an extremely powerful concept if we want to develop maintainable, efficient and scalable applications.
+
+#### Polymorphism ####
+From Greek **polymorphos** where **poli = many** and **morphe = shape, form**. It is one of the most important concept of Object Oriented Programming and it refers to the ability of an object to provide different behaviors in different state of objects. Let's see with an example what does that mean:
+
+```javascript
+TO BE CONTINUED
+```
