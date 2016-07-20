@@ -116,8 +116,41 @@ In the example above, `London` is an object that is created from the `City` cons
 *Inheritance happens when an instance is created*, and so all the properties and methods of the constructor an inherited by the object (instance) created. That's an extremely powerful concept if we want to develop maintainable, efficient and scalable applications.
 
 #### Polymorphism ####
-From Greek **polymorphos** where **poli = many** and **morphe = shape, form**. It is one of the most important concept of Object Oriented Programming and it refers to the ability of an object to provide different behaviors in different state of objects. Let's see with an example what does that mean:
+From Greek **polymorphos** where **poli = many** and **morphe = shape, form**. It refers to the ability of an object to provide different behaviors in different state of objects. Let's see with an example what does that mean:
 
 ```javascript
-TO BE CONTINUED
+// I create a super class something that lives
+function SomethingThatLives(name, age){
+     this.name = name;
+     this.age = age;
+}
+
+// I create an instance of the super class
+var Oliver = new SomethingThatLives('Oliver', 5);
+
+// I add a behavior to the super class
+Animal.prototype.sayHello = function(){
+     return 'Hello!';
+}
+
+// I create a sub class
+function Cat(name, age){
+     this.name = name;
+     this.age = age;
+}
+
+Cat.prototype = new SomethingThatLives();
+
+// I extend the subclass with a new method
+Cat.prototype.sayHello = function (){
+	return 'Meow!';
+}
+
+var Morgan = new Cat('Morgan', 4);
+Morgan.sayHello(); // Meow!
+Oliver.sayHello(); // Hello!
+
 ```
+In the example above I created a super class `SomethingThatLives`, then I created an instance of `SomethingThatLives`, `Oliver`. The object inherits the properties of the super class. When I want to extend the super class with additional properties or methods I can use prototype. In the example above I extended the super class `SomethingThatLives` with the method `sayHello()`, which returns 'Hello!'. "Things that live" it's quite a wide and heterogeneous group with different characteristic. Let's assume I want to create some other instance of `SomethingThatLives`, for instance `Morgan`, which is a cat. To do that I can create a subclass of `SomethingThatLives`, 'Cat', then I can extend it wit the same method `sayHello()`. In this case, it will return 'Meow!'. So as seen in the example Polymorphism happens when objects belonging to the same super class can have the same methods behaving in different ways.
+
+In this article we have seen briefly the most important concepts of OOP in Javascript. With OOP we can use self-contained pieces of code to develop applications, objects. Building applications with objects allows us to adopt some useful techniques such as **Inheritance** (objects can inherit properties from other objects), **Polymorphism** (object with different behaviors in different state of objects), and **Encapsulation** (each object is responsible for specific tasks). 
