@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "ES6 classes"
+date:   2016-06-12 14:00:00 +0100
+categories: Javascript
+---
+
+ECMAScript 6, also called ECMAScript 2015, is the latest version of the ECMAScript standard and is bringing a lot of new and interesting features. Let's have a look at **classes**.
+
+### Classes: the 'syntactical sugar' ###
+Classes make prettier the way we declare objects. We can consider a class as a "special function", and pretty much like functions the class syntax has two components: **expressions** and **declarations**.
+
+**Class declarations**: we can define a class via declaration, using the keyword `class` followed by the name we want to give.
+
+```javascript
+class Desk{
+  constructor(size, color){
+    this.size = size;
+    this.color = color;
+  }
+}
+```
+
+**Class expressions**: it's another way to define a class. Class expressions can be named or unnamed.
+
+```javascript
+//unnamed
+let Desk = class {
+  constructor(size, color){
+    this.size = size;
+    this.color = color;
+  }
+}
+
+//named
+let Desk = class Desk {
+  constructor(height, width) {
+    this.size = size;
+    this.color = color;
+  }
+};
+```
+
+Both class declarations and expressions differ from function declarations and expressions because of **hoisting**. Function declarations and expressions are hoisted, so no matter if you first access them and then declare them, it will work. This is not true for classes where you have always to declare them first and then access them.
+
+```javascript
+var workStation = new Desk(); // ReferenceError
+class Desk {}
+```

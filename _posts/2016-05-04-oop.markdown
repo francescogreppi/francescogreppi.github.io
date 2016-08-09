@@ -98,9 +98,9 @@ The term *encapsulation* refers to enclosing all the properties and methods of a
 What do we mean by abstracting a specific set of properties and methods? The *abstraction principle* is at the foundation of computer programming and it aims to reduce redundant code:
 
 - each significant piece of functionality in a program should be implemented in a single place in the source code;
-- if some functionalites are similar between them, then it is recommended to declare the common parts into a single place;
+- if some functionalities are similar between them, then it is recommended to declare the common parts into a single place;
 
-This principle is important in this context beacuse it helps to better understand object *inheritance* and why it is so powerful. Inheritance refers to an object being able to inherit methods and properties from a parent object. Example below:
+This principle is important in this context because it helps to better understand object *inheritance* and why it is so powerful. Inheritance refers to an object being able to inherit methods and properties from a parent object. Example below:
 
 ```javascript
 // constructor
