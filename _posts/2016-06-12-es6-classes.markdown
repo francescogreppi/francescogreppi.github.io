@@ -47,3 +47,41 @@ Both class declarations and expressions differ from function declarations and ex
 var workStation = new Desk(); // ReferenceError
 class Desk {}
 ```
+
+### Class body and method definitions ###
+The body of the class is whatever is between brackets `{}` and it has to be composed by a **constructor**, which can be considered the body of our class. A constructor can use the 'super' keyword to inherit the properties of a parent constructor. Additionally, a class can have **methods** which can be either **prototype** or **static**. The latter are defined with `static` keyword and they are called without instantiating their class. Also they can't be called when the class is instantiated. Static methods are typically used to create utility functions for an application.
+
+```javascript
+// prototype method example
+class Guitar {
+  constructor(model, song){
+    this.model = model;
+    this.song = song;
+  }
+  playSomething(){
+    alert("I'm a "+this.model+"and I'm going to play "+this.song);
+  }
+  const gibson = new Guitar("Les Paul Studio 2016", "Aces High");
+  gibson.playSomething();
+
+// static method example taken from MDN website
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    static distance(a, b) {
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+
+        return Math.sqrt(dx*dx + dy*dy);
+    }
+}
+
+const p1 = new Point(5, 5);
+const p2 = new Point(10, 10);
+
+console.log(Point.distance(p1, p2));
+}
+```
