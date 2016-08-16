@@ -107,7 +107,7 @@ class Employee extends Person {
 }
 ```
 
-`Extend` keyword can applied also to object constructors. Note in the example below we are using `super` to access a method of the parent class. `Super` is the keyword to call the functions of a parent class.
+`Extend` keyword can applied also to object constructors. Note in the example below we are using `super` to access a method of the parent class. `super` is the keyword to call the functions of a parent class.
 
 ```Javascript
 //object constructor
@@ -134,3 +134,5 @@ d.swim();
 // The Jaw swim
 // and he does it fast
 ```
+
+That's all for now, hope you have enjoyed.
