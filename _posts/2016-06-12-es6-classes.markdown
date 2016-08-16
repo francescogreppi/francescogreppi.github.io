@@ -89,7 +89,7 @@ console.log(Point.distance(p1, p2));
 ### Sub classes ###
 With the `extends` keyword you can create a class as a child of another class. See the example below:
 
-```Javascript
+```javascript
 class Person {
   constructor(name) {
     this.name = name;
@@ -109,7 +109,7 @@ class Employee extends Person {
 
 `Extend` keyword can applied also to object constructors. Note in the example below we are using `super` to access a method of the parent class. `super` is the keyword to call the functions of a parent class.
 
-```Javascript
+```javascript
 //object constructor
 function Fish (name) {
   this.name = name;  
