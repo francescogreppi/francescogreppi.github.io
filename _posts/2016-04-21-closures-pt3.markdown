@@ -3,26 +3,29 @@ layout: post
 title:  "Closures pt.3 - the concept"
 date:   2016-04-21 11:00:00 +0100
 categories: Javascript
+comments: false
 ---
 
 Ok, thanks to my exploration of lexical environment and nested function I should have now enough knowledge to explain what a closure is. I found a clear example on [StackOverflow](http://stackoverflow.com/questions/111102/how-do-javascript-closures-work?page=1&tab=votes#tab-top) which I'm going to report below.
 
 ```javascript
-// global scope
 
-function sayHello(name) {
-	// local scope
-    var text = 'Hello ' + name; 
-    
-    var say = function() { 
-    	// local scope
-    	console.log(text); 
-    }
-    return say;
-}
+	// global scope
 
-var say2 = sayHello('Albert');
-say2(); // logs "Hello Albert"
+	function sayHello(name) {
+		// local scope
+		var text = 'Hello ' + name; 
+
+		var say = function() { 
+			// local scope
+			console.log(text); 
+			}
+			return say;
+	}
+
+	var say2 = sayHello('Albert');
+	say2(); // logs "Hello Albert"
+
 ```
 So, here's what's happening, read it slowly: 
 

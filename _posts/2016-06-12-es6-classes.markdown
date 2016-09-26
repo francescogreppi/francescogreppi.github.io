@@ -3,6 +3,7 @@ layout: post
 title:  "ES6 classes"
 date:   2016-06-12 14:00:00 +0100
 categories: Javascript
+comments: false
 ---
 
 ECMAScript 6, also called ECMAScript 2015, is the latest version of the ECMAScript standard and is bringing a lot of new and interesting features. Let's have a look at **classes**.
@@ -13,126 +14,138 @@ Classes make prettier the way we declare objects. We can consider a class as a "
 **Class declarations**: we can define a class via declaration, using the keyword `class` followed by the name we want to give.
 
 ```javascript
-class Desk{
-  constructor(size, color){
-    this.size = size;
-    this.color = color;
+
+  class Desk{
+    constructor(size, color){
+      this.size = size;
+      this.color = color;
+    }
   }
-}
+  
 ```
 
 **Class expressions**: it's another way to define a class. Class expressions can be named or unnamed.
 
 ```javascript
-//unnamed
-let Desk = class {
-  constructor(size, color){
-    this.size = size;
-    this.color = color;
-  }
-}
 
-//named
-let Desk = class Desk {
-  constructor(height, width) {
-    this.size = size;
-    this.color = color;
+  //unnamed
+  let Desk = class {
+    constructor(size, color){
+      this.size = size;
+      this.color = color;
+    }
   }
-};
+
+  //named
+  let Desk = class Desk {
+    constructor(height, width) {
+      this.size = size;
+      this.color = color;
+    }
+  };
+
 ```
 
 Both class declarations and expressions differ from function declarations and expressions because of **hoisting**. Function declarations and expressions are hoisted, so no matter if you first access them and then declare them, it will work. This is not true for classes where you have always to declare them first and then access them.
 
 ```javascript
-var workStation = new Desk(); // ReferenceError
-class Desk {}
+
+  var workStation = new Desk(); // ReferenceError
+  class Desk {}
+
 ```
 
 ### Class body and method definitions ###
 The body of the class is whatever is between brackets `{}` and it has to be composed by a **constructor**, which can be considered the body of our class. A constructor can use the 'super' keyword to inherit the properties of a parent constructor. Additionally, a class can have **methods** which can be either **prototype** or **static**. The latter are defined with `static` keyword and they are called without instantiating their class. Also they can't be called when the class is instantiated. Static methods are typically used to create utility functions for an application.
 
 ```javascript
-// prototype method example
-class Guitar {
-  constructor(model, song){
-    this.model = model;
-    this.song = song;
-  }
-  playSomething(){
-    alert("I'm a "+this.model+"and I'm going to play "+this.song);
-  }
-  const gibson = new Guitar("Les Paul Studio 2016", "Aces High");
-  gibson.playSomething();
 
-// static method example taken from MDN website
-class Point {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
+  // prototype method example
+  class Guitar {
+    constructor(model, song){
+      this.model = model;
+      this.song = song;
     }
-
-    static distance(a, b) {
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-
-        return Math.sqrt(dx*dx + dy*dy);
+    playSomething(){
+      alert("I'm a "+this.model+"and I'm going to play "+this.song);
     }
-}
+    const gibson = new Guitar("Les Paul Studio 2016", "Aces High");
+    gibson.playSomething();
 
-const p1 = new Point(5, 5);
-const p2 = new Point(10, 10);
+  // static method example taken from MDN website
+  class Point {
+      constructor(x, y) {
+          this.x = x;
+          this.y = y;
+      }
 
-console.log(Point.distance(p1, p2));
-}
+      static distance(a, b) {
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+
+          return Math.sqrt(dx*dx + dy*dy);
+      }
+  }
+
+  const p1 = new Point(5, 5);
+  const p2 = new Point(10, 10);
+
+  console.log(Point.distance(p1, p2));
+  }
+
 ```
 
 ### Sub classes ###
 With the `extends` keyword you can create a class as a child of another class. See the example below:
 
 ```javascript
-class Person {
-  constructor(name) {
-    this.name = name;
+
+  class Person {
+    constructor(name) {
+      this.name = name;
+    }
+
+    speak() {
+      console.log(this.name + ' says hello!');
+    }
   }
 
-  speak() {
-    console.log(this.name + ' says hello!');
+  class Employee extends Person {
+    speak() {
+      console.log(this.name + ' works as an employee.');
+    }
   }
-}
 
-class Employee extends Person {
-  speak() {
-    console.log(this.name + ' works as an employee.');
-  }
-}
 ```
 
 `Extend` keyword can applied also to object constructors. Note in the example below we are using `super` to access a method of the parent class. `super` is the keyword to call the functions of a parent class.
 
 ```javascript
-//object constructor
-function Fish (name) {
-  this.name = name;  
-}
-//defining a method with prototype
-Fish.prototype.swim = function () {
-  console.log(this.name + ' swim.');
-}
 
-//defining a new class Shark which inherit the properties of Fish
-class Shark extends Fish {
-  swim() {
-    // with super I can call a method of the parent class
-    super.swim();
-    console.log('and he does it fast.');
+  //object constructor
+  function Fish (name) {
+    this.name = name;  
   }
-}
+  //defining a method with prototype
+  Fish.prototype.swim = function () {
+    console.log(this.name + ' swim.');
+  }
 
-var d = new Shark('The Jaw');
-d.swim();
-// result will be:
-// The Jaw swim
-// and he does it fast
+  //defining a new class Shark which inherit the properties of Fish
+  class Shark extends Fish {
+    swim() {
+      // with super I can call a method of the parent class
+      super.swim();
+      console.log('and he does it fast.');
+    }
+  }
+
+  var d = new Shark('The Jaw');
+  d.swim();
+  // result will be:
+  // The Jaw swim
+  // and he does it fast
+
 ```
 
 That's all for now, hope you have enjoyed.
