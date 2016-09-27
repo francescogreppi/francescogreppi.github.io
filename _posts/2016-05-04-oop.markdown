@@ -85,7 +85,7 @@ In JavaScript we consider `this` that entity (the object) within a constructor t
 
 #### ... and prototype? ####
 At this point things get quite interesting. As we previously said a constructor is a function and a function is a special kind of object with its own properties.
-**Prototype** is one of those and it's just an empty object (apart from built-ins such date). When an object is constructed, it inherits all of the properties of its constructor’s prototype, as follows.
+**Prototype** is one of those and it's just an empty object (apart from built-ins such as date). When an object is constructed, it inherits all of the properties of its constructor’s prototype, as follows.
 
 ```javascript
 
@@ -94,11 +94,11 @@ At this point things get quite interesting. As we previously said a constructor 
 	// I create the Dog instance via new keyword
 	var bobby= new Dog;
 	//constructor inherits prototype properties if any
-	Dog.breed;         // English Setter
+	bobby.breed;         // English Setter
 
 ```
-The `Dog` instance get the breed property from Dog‘s prototype. This kind of inheritance is more than copying properties to the new objects. The object is made to reflect the changes happening in its constructor’s prototype. That means that it's possible to change the prototype later, and see the changes reflected in the instance.
-At this point should be clear what is the difference between a prototype and an object constructor function?
+The `bobby` instance get the breed property from Dog‘s prototype. This kind of inheritance is more than copying properties to the new objects. The object is made to reflect the changes happening in its constructor’s prototype. That means that it's possible to change the prototype later, and see the changes reflected in the instance.
+At this point should be clear what is the difference between a prototype and an object constructor function.
 A constructor is a pointer while prototype is a property of Function() objects. No other type of objects have this property.
 
 #### Encapsulation and Inheritance ####
