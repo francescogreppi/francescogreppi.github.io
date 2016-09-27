@@ -70,6 +70,7 @@ The body of the class is whatever is between brackets `{}` and it has to be comp
       alert("I'm a "+this.model+"and I'm going to play "+this.song);
     }
   }
+  
   const gibson = new Guitar("Les Paul Studio 2016", "Aces High");
   gibson.playSomething();
 
