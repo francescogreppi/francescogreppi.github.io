@@ -69,8 +69,9 @@ The body of the class is whatever is between brackets `{}` and it has to be comp
     playSomething(){
       alert("I'm a "+this.model+"and I'm going to play "+this.song);
     }
-    const gibson = new Guitar("Les Paul Studio 2016", "Aces High");
-    gibson.playSomething();
+  }
+  const gibson = new Guitar("Les Paul Studio 2016", "Aces High");
+  gibson.playSomething();
 
   // static method example taken from MDN website
   class Point {
@@ -91,7 +92,7 @@ The body of the class is whatever is between brackets `{}` and it has to be comp
   const p2 = new Point(10, 10);
 
   console.log(Point.distance(p1, p2));
-  }
+  
 
 ```
 
