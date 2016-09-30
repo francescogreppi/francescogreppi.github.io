@@ -23,7 +23,7 @@ In a logical sequence a variable is firstly declared, then initialized and then 
 
 ```
 
-This is actually a good practise and we should always use this order whenever we code. However, behind the scenes Javascript doesn't follow exactly the same logic. 
+This is actually a good practise that we should always follow when we code. However, behind the scenes Javascript doesn't follow exactly the same logic. 
 Let's assume we `alert()` the variable `a` before declaring and initializing it. If you try this in your browser console, you'll get `undefined`, which is not the expected result.
 What we would expect instead is a reference error since the variable is not yet declared at the moment of the `alert(a)` execution.
 
