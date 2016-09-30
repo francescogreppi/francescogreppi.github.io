@@ -1,0 +1,81 @@
+---
+layout: post
+title:  "Hoisting"
+date:   2016-09-27 14:00:00 +0100
+categories: Javascript
+comments: false
+---
+
+In Javascript variables have a life-cycle which consists of three phases:
+
+- **declaration**: a variable is declared;
+- **initialization**: a value is stored in the variable;
+- **usage**: the value contained in the variable is accessed for some purposes.
+
+In a logical sequence a variable is firstly declared, then initialized and then used in order to achieve something. We see this pattern happening most of the time, as in the example below:
+
+```Javascript
+
+	// declaration and initialization
+	var a = 5;
+	//usage
+	alert(a);
+
+```
+
+This is actually a good practise and we should always use this order whenever we code. However, behind the scenes Javascript doesn't follow exactly the same logic. 
+Let's assume we `alert()` the variable `a` before declaring and initializing it. If you try this in your browser console, you'll get `undefined`, which is not the expected result.
+What we would expect instead is a reference error since the variable is not yet declared at the moment of the `alert(a)` execution.
+
+```Javascript
+
+	//usage
+	alert(a); // undefined
+	// declaration and initialization
+	var a = 5;
+
+```
+
+What happens here is called **hoisting**, which basically means that Javascript during the execution time move all variables and functions declarations at the top of your coding. 
+To be more precise Javascript doesn't physically move those variables and functions, but simply store them in memory during the compile phase. 
+
+As mentioned, not only variables are stored in memory but functions declarations too (functions expressions are considered as the value of a variable). 
+In the case of functions, the way things work is slightly different. Copy and paste in your console the example below.
+
+```Javascript
+
+	bar();
+
+	// declaration
+	function bar(){
+		return 3;
+	}
+	
+
+```
+
+If you try this code in your console, you'll see that `3` is returned instead of `undefined`, as in the case of the previous example with variables.
+This happens because the life-cycle of a function is slightly different than the one of a variable. A function declaration doesn't have the initialization step,
+the instructions present in a function declaration are part of the declaration itself, so they are stored in memory during the compile phase. For this reason, `3` is returned.
+
+
+```Javascript
+
+	bar();
+
+	// declaration
+	function bar(){
+	  return a;
+	}
+
+	var a = 3;
+
+```
+
+In the example above the situation is a bit more complicated, since the function declaration is referring to a variable in the outer scope. 
+The variable is declared and initialized after the function declaration. During the compile phase Javascript stores in memory the function declaration and the variable. 
+
+**Which one of the two has precedence?** The function declaration takes precedence over variable declaration. However, not on the variable initialization which happens during the code
+execution. That's the reason why the result of the code above will be `undefined`. However if you move `var a = 3;` above the function declaration `3` is returned.
+
+That's all for the moment, hope you had enojoyed. 
