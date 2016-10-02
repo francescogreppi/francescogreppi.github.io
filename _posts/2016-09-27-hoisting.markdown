@@ -14,7 +14,7 @@ In Javascript variables have a life-cycle which consists of three phases:
 
 In a logical sequence a variable is firstly declared, then initialized and then used in order to achieve something. We see this pattern happening most of the time, as in the example below:
 
-```Javascript
+```javascript
 
 	// declaration and initialization
 	var a = 5;
