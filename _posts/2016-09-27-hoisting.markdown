@@ -78,4 +78,4 @@ The variable is declared and initialized after the function declaration. During 
 **Which one of the two has precedence?** The function declaration takes precedence over variable declaration. However, not on the variable initialization which happens during the code
 execution. That's the reason why the result of the code above will be `undefined`. However if you move `var a = 3;` above the function declaration `3` is returned.
 
-That's all for the moment, hope you have enojoyed. 
+That's all for now, hope you have enjoyed.
