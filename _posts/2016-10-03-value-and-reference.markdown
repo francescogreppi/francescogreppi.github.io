@@ -7,7 +7,7 @@ comments: false
 ---
 
 In this post I'd like to describe the way values and references are passed as arguments to functions. I think sometimes
-it might be confusing, and I found myself in a couple of situation where I spent hours trying to figuring out what was going on.
+it might be confusing, so let's make it clear.
 
 ```javascript
 
