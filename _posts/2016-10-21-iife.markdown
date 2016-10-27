@@ -64,6 +64,10 @@ At this point when the parser find the `function` keyword between parenthesis it
   // after the expression the parser finds the () and so invoke the function expression immediately
   (function(){ /* code */ })()
 
+  // an IIFE can also be invoked in this way
+  // keeping the invoking () within the expression
+  (function(){ /* code */ }())
+
 ```
 
 That's all for now, more to come on IIFE, hope you have enjoyed.
