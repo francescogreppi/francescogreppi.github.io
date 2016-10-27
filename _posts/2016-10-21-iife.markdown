@@ -14,23 +14,23 @@ from the outside. This is very helpful, because it creates privacy and code stru
 
 ```javascript
 
-function increment() {
-  // `i` belongs to the function's local scope
-  var i = 0;
+  function increment() {
+    // `i` belongs to the function's local scope
+    var i = 0;
 
-  return function() {
-    console.log( ++i );
-  };
-}
-// we create two instances of increment()
-// notice that every instance keep its own scope, and so its own var i value
-var increment1 = increment();
-counter(); // logs: 1
-counter(); // logs: 2
+    return function() {
+      console.log( ++i );
+    };
+  }
+  // we create two instances of increment()
+  // notice that every instance keep its own scope, and so its own var i value
+  var increment1 = increment();
+  counter(); // logs: 1
+  counter(); // logs: 2
 
-var increment2 = increment();
-counter2(); // logs: 1
-counter2(); // logs: 2
+  var increment2 = increment();
+  counter2(); // logs: 1
+  counter2(); // logs: 2
 
 ```
 
@@ -44,13 +44,13 @@ Because of that when the parser finds a `function` keyword without a name a synt
 
 ```javascript
 
-// the parser consider the function expression below
-// as a function declaration, where foo is the reference/name
-var foo = function(){ /* code */ }
+  // the parser consider the function expression below
+  // as a function declaration, where foo is the reference/name
+  var foo = function(){ /* code */ }
 
-// a function expression like the below is considered
-// by the parser as a syntax error, because a reference is missing
-function(){ /* code */ }(); // SyntaxError: Unexpected token (
+  // a function expression like the below is considered
+  // by the parser as a syntax error, because a reference is missing
+  function(){ /* code */ }(); // SyntaxError: Unexpected token (
 
 ```
 
@@ -60,10 +60,10 @@ At this point when the parser find the `function` keyword between parenthesis it
 
 ```javascript
 
-// the parser finds the function keyword between parenthesis
-// so it can treat it as a function expression
-// after the expression the parser finds the () and so invoke the function expression immediately
-(function(){ /* code */ })()
+  // the parser finds the function keyword between parenthesis
+  // so it can treat it as a function expression
+  // after the expression the parser finds the () and so invoke the function expression immediately
+  (function(){ /* code */ })()
 
 ```
 
