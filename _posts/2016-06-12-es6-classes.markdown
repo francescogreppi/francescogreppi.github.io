@@ -151,3 +151,5 @@ With the `extends` keyword you can create a class as a child of another class. S
 ```
 
 That's all for now, hope you have enjoyed.
+
+Back to [home](/).

@@ -66,3 +66,5 @@ After the previous examples we might expect to see 3 as a result of this computa
 passing them as arguments to a functions. In fact, primitives are passed **by value** and objects are passed **by reference**, meaning that any property of the object is accessible within the function.
 
 That's all for now, hope you have enjoyed.
+
+Back to [home](/).

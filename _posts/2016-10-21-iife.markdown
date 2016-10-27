@@ -1,0 +1,72 @@
+---
+layout: post
+title:  "Immediately Invoked Function Expressions"
+date:   2016-10-21 14:00:00 +0100
+categories: Javascript
+comments: false
+---
+
+In very simple words an Immediately Invoked Function Expression is an anonymous function that is created and immediately invoked. An IIFE is a common Javascript pattern and 
+is used by the most popular libraries (jQuery, Backbone.js etc.) in order to place all the code inside a local scope and avoid to pollute the global scope.
+
+Whenever we invoke a function in Javascript, an execution context is created. Variables declared inside the functions belong to that context and cannot be accessed 
+from the outside. This is very helpful, because it creates privacy and code structure.
+
+```javascript
+
+function increment() {
+  // `i` belongs to the function's local scope
+  var i = 0;
+
+  return function() {
+    console.log( ++i );
+  };
+}
+// we create two instances of increment()
+// notice that every instance keep its own scope, and so its own var i value
+var increment1 = increment();
+counter(); // logs: 1
+counter(); // logs: 2
+
+var increment2 = increment();
+counter2(); // logs: 1
+counter2(); // logs: 2
+
+```
+
+The example above refers to the common use we do about functions. However, sometimes we don't need multiple instances of a function. Think about jQuery, it's enough we invoke
+the library once, we don't need multiple instances of it. This is where IIFEs come to help.
+
+How an IIFE execute? The answer is in the syntax. As we know we can declare a function like a function expression `var hello = function(){}` or like a function declaration 
+`function hello(){}`. In both the cases when we invoke the function we use `()` like so `hello()`. However, whenever the parser encounter the `function` keyword 
+(in a variable or in a declaration) it considers it always as a function declaration, never like a function expression. 
+Because of that when the parser finds a `function` keyword without a name a syntax error is thrown.
+
+```javascript
+
+// the parser consider the function expression below
+// as a function declaration, where foo is the reference/name
+var foo = function(){ /* code */ }
+
+// a function expression like the below is considered
+// by the parser as a syntax error, because a reference is missing
+function(){ /* code */ }(); // SyntaxError: Unexpected token (
+
+```
+
+Considering the example above, how can an immediately invoked function **expression** be executed? 
+The easiest way is to wrap the function between parenthesis. In fact, in Javascript parenthesis can't contain statements. 
+At this point when the parser find the `function` keyword between parenthesis it treats it as a function expression instead of a function declaration. However, to invoke that function Javascript needs to find an additional pair of parenthesis outside of the expression. Like so:
+
+```javascript
+
+// the parser finds the function keyword between parenthesis
+// so it can treat it as a function expression
+// after the expression the parser finds the () and so invoke the function expression immediately
+(function(){ /* code */ })()
+
+```
+
+That's all for now, more to come on IIFE, hope you have enjoyed.
+
+Back to [home](/).

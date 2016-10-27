@@ -135,5 +135,8 @@ We didn't speak about undefined and null so far. As it has been said previously 
 
 The reason for this was actually an error in the original implementation of JavaScript. The error was then copied in ECMAScript. Nevertheless, it is rationalized that null is considered a placeholder for an object, even though, technically, it is a primitive value.
 
+There is much more to say about the nature of Javascript and especially about objects. However, the purpose of this article is just to give a first understanding of data types and why object is so special and predominant in Javascript. 
 
-There is much more to say about the nature of Javascript and especially about objects. However, the purpose of this article is just to give a first understanding of data types and why object is so special and predominant in Javascript. More insights will follow. Back to [home](/).  
+That's all for now, hope you have enjoyed.
+
+Back to [home](/). 

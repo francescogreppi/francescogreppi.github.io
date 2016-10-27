@@ -79,3 +79,5 @@ The variable is declared and initialized after the function declaration. During 
 execution. That's the reason why the result of the code above will be `undefined`. However if you move `var a = 3;` above the function declaration `3` is returned.
 
 That's all for now, hope you have enjoyed.
+
+Back to [home](/).
