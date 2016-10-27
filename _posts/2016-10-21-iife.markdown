@@ -34,8 +34,7 @@ from the outside. This is very helpful, because it creates privacy and code stru
 
 ```
 
-The example above refers to the common use we do about functions. However, sometimes we don't need multiple instances of a function. Think about jQuery, it's enough we invoke
-the library once, we don't need multiple instances of it. This is where IIFEs come to help.
+The example above refers to the common use we do about functions. However, sometimes we don't need multiple instances of a function. Here is where the IIFE pattern comes to help us.
 
 How an IIFE execute? The answer is in the syntax. As we know we can declare a function like a function expression `var hello = function(){}` or like a function declaration 
 `function hello(){}`. In both the cases when we invoke the function we use `()` like so `hello()`. However, whenever the parser encounter the `function` keyword 
