@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Prototypal Inheritance and prototypal chain"
+title:  "Prototypal Inheritance and Prototypal Chain"
 date:   2016-11-02 14:00:00 +0100
 categories: Javascript
 comments: false
