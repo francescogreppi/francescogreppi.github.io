@@ -1,10 +1,10 @@
-```
+---
 layout: post
 title:  "Prototypal Inheritance and prototypal chain"
 date:   2016-11-02 14:00:00 +0100
 categories: Javascript
 comments: false
-```
+---
 
 In Javascript a `prototype` is an object from which other objects inherits properties. Every object has its own prototype and, since a prototype is an object too, 
 every prototype has its own prototype (exception given for the default object prototype at the top of the prototype chain, which is `null`, we'll see this shortly).
