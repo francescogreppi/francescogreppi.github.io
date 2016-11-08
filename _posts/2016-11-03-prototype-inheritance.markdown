@@ -129,3 +129,7 @@ However, is this property referencing the real prototype of a function construct
 
 The **real prototype** of a constructor is the function while the **prototype property** is an object reflecting the constructor and it's used to update all 
 the instances created by that constructor whenever the constructor it is modified (for instance by adding a property).
+
+That's all for now, more to come on IIFE, hope you have enjoyed.
+
+Back to [home](/).
